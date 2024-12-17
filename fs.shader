@@ -22,7 +22,7 @@ void main() {
         // Nếu không phải là màu skyblue, tiếp tục với việc tính toán ánh sáng
         //-----------Nguồn sáng 1-------------
         if (enable_light_1) {
-            vec3 light_position_world_1 = vec3(0.0, 2.27, -3.0);
+            vec3 light_position_world_1 = vec3(0.0, 50, 0.0);
             vec3 light_position_eye_1 = vec3(view_mat_shader * vec4(light_position_world_1, 1.0));
             vec3 position_viewer = vec3(0.0, 0.0, 0.0);
             vec3 n_eye = normalize(normal_eye);
@@ -39,7 +39,7 @@ void main() {
             vec3 half_way_eye_1 = normalize(surface_to_viewer_eye_1 + direction_to_light_eye_1);
             float dot_prod_specular_1 = max(dot(half_way_eye_1, n_eye), 0.0);
             float specular_factor_1 = pow(dot_prod_specular_1, 20.0);
-            vec3 Ls_1 = vec3(0.2, 0.2, 0.2);
+            vec3 Ls_1 = vec3(0.5, 0.5, 0.5);
             vec3 Ks_1 = vec3(1.0, 1.0, 1.0);
             vec3 Is_1 = Ls_1 * Ks_1 * specular_factor_1;
 
@@ -52,7 +52,7 @@ void main() {
 
         //-----------Nguồn sáng 2-------------
         if (enable_light_2) {
-            vec3 light_position_world_2 = vec3(2.0, 15.0, 2.0);
+            vec3 light_position_world_2 = vec3(0, 30.0, -20.0);  //Chỉnh ở đây là các cánh cửa sẽ có màu nha
             vec3 light_position_eye_2 = vec3(view_mat_shader * vec4(light_position_world_2, 1.0));
             vec3 position_viewer = vec3(0.0, 0.0, 0.0);
             vec3 n_eye = normalize(normal_eye);
